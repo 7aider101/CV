@@ -8,17 +8,18 @@
   <meta name="keywords" content="مطور ويب, HTML, CSS, JavaScript, Bootstrap, glitch, تصميم عصري, نيون">
   <meta name="author" content="علي">
   
-  <!-- Bootstrap CSS (CDN مع خاصية integrity) -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
         integrity="sha512-3gJW+B0WZ+HB2N6k93QYXb1F1yS9Z1Pf4HjeDy+zuv1AKyP0NYJyhzg+AKai0zrYhUmtIpJlpmbB7eVb1VYoLQ==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-  <!-- Animate.css for smooth animations -->
+  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" 
         integrity="sha512-bqjtRytrX2rEaBaxulD/qYY8fjUwz/K8vDyyfzj6G0kEGks9ITpF0tvSp6qqIf3sj7XDo8ZPZc8W5SQ2l8l+AA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
+  <!-- جرب استبدال fas بـ fa-solid إذا واجهت مشكلة -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
         integrity="sha512-papXMfXs8CtZmaQKy2lL1L5V+SlQCI5ufxmc5fkixbAm0qYst+5DV8tfhmyZnuGnKzGLT9rlU58hE0V8L6J3jg==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,7 +28,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap">
   
   <style>
-    /* خلفية متحركة بألوان داكنة مع تأثير Gradient */
     body {
       margin: 0;
       padding: 0;
@@ -52,7 +52,6 @@
       padding: 20px;
     }
     
-    /* تصميم البطاقة مع تأثير النيون والدائرة المتحركة */
     .card-custom {
       background: rgba(20, 20, 20, 0.9);
       padding: 30px;
@@ -83,7 +82,6 @@
       z-index: 2;
     }
     
-    /* تأثير glitch على الاسم لجذب الأنظار */
     .glitch {
       position: relative;
       font-size: 48px;
@@ -124,7 +122,6 @@
       100% { clip: rect(45px, 9999px, 50px, 0); transform: translate(2px, 2px); }
     }
     
-    /* فقرة الوصف */
     .about {
       text-align: center;
       margin-bottom: 25px;
@@ -133,7 +130,6 @@
       color: #ccc;
     }
     
-    /* مهارات البرمجة مع تأثير نيون على hover */
     .skills {
       text-align: center;
       margin-bottom: 25px;
@@ -153,7 +149,6 @@
       color: #000;
     }
     
-    /* روابط التواصل مع تأثير نيون متحرك */
     .links {
       text-align: center;
       margin-bottom: 25px;
@@ -176,7 +171,6 @@
       transform: scale(1.1);
     }
     
-    /* قسم الخبرات والمشاريع */
     .experience {
       margin-top: 25px;
     }
@@ -202,7 +196,6 @@
       background: rgba(0, 0, 0, 0.7);
     }
     
-    /* زر تبديل الوضع (اختياري) */
     .toggle-mode {
       position: fixed;
       top: 20px;
@@ -230,8 +223,9 @@
   </style>
 </head>
 <body>
-  <!-- زر تبديل الوضع (اختياري) -->
+  <!-- زر تبديل الوضع -->
   <button class="toggle-mode" id="toggleMode" aria-label="تبديل الوضع">
+    <!-- جرب استخدام fa-solid بدلًا من fas إذا لزم الأمر -->
     <i class="fas fa-sun"></i>
   </button>
   
@@ -255,7 +249,7 @@
         <span>Node.js</span>
       </div>
       
-      <!-- روابط التواصل الاجتماعي وطرق الاتصال -->
+      <!-- روابط التواصل الاجتماعي -->
       <div class="links">
         <a href="#" title="تويتر" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
         <a href="#" title="لينكدإن" aria-label="لينكدإن"><i class="fab fa-linkedin"></i></a>
@@ -263,7 +257,7 @@
         <a class="whatsapp" href="https://wa.me/966500000000" target="_blank" title="واتساب" aria-label="واتساب">
           <i class="fab fa-whatsapp"></i>
         </a>
-        <a class="telegram" href="https://t.me/YourTelegramUsername" target="_blank" title="تلجرام" aria-label="تلجرام">
+        <a class="telegram" href="https://t.me/YourTelegramUsername" target="_blank" title="تليجرام" aria-label="تليجرام">
           <i class="fab fa-telegram"></i>
         </a>
       </div>
@@ -286,7 +280,6 @@
           integrity="sha512-+VB8v+1yhNyI74XLlIje6sEaHr5snrdcXkkU4jyg5bk29O+v3+tQt+Wuwc6Rpg+ZyUg+GjXSi3Se3W0+7yKS3g==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    // زر تبديل الوضع (اختياري)
     const toggleBtn = document.getElementById('toggleMode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
