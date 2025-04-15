@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DarkGlitchPortfolio - علي</title>
+  <meta name="description" content="بطاقتي الشخصية - مطور ويب محترف ومتمرد بلمسات glitch وتصميم نيون عصري.">
+  <meta name="keywords" content="مطور ويب, HTML, CSS, JavaScript, Bootstrap, glitch, تصميم عصري, نيون">
+  <meta name="author" content="علي">
+  
+  <!-- Bootstrap CSS (CDN مع خاصية integrity) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
+        integrity="sha512-3gJW+B0WZ+HB2N6k93QYXb1F1yS9Z1Pf4HjeDy+zuv1AKyP0NYJyhzg+AKai0zrYhUmtIpJlpmbB7eVb1VYoLQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Animate.css for smooth animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" 
+        integrity="sha512-bqjtRytrX2rEaBaxulD/qYY8fjUwz/K8vDyyfzj6G0kEGks9ITpF0tvSp6qqIf3sj7XDo8ZPZc8W5SQ2l8l+AA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-papXMfXs8CtZmaQKy2lL1L5V+SlQCI5ufxmc5fkixbAm0qYst+5DV8tfhmyZnuGnKzGLT9rlU58hE0V8L6J3jg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap">
+  
+  <style>
+    /* خلفية متحركة بألوان داكنة مع تأثير Gradient */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      direction: rtl;
+      background: linear-gradient(-45deg, #000, #222, #000, #222);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    /* تصميم البطاقة مع تأثير النيون والدائرة المتحركة */
+    .card-custom {
+      background: rgba(20, 20, 20, 0.9);
+      padding: 30px;
+      border: 1px solid #444;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-custom::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,255,255,0.2), transparent 40%);
+      animation: rotate 6s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .card-custom * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* تأثير glitch على الاسم لجذب الأنظار */
+    .glitch {
+      position: relative;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.8;
+    }
+    .glitch::before {
+      animation: glitch 2s infinite linear alternate-reverse;
+      color: #f00;
+    }
+    .glitch::after {
+      animation: glitch2 2.5s infinite linear alternate-reverse;
+      color: #0ff;
+    }
+    @keyframes glitch {
+      0% { clip: rect(10px, 9999px, 15px, 0); transform: translate(2px, -2px); }
+      20% { clip: rect(75px, 9999px, 80px, 0); transform: translate(-2px, 2px); }
+      40% { clip: rect(45px, 9999px, 50px, 0); transform: translate(2px, 0); }
+      60% { clip: rect(60px, 9999px, 65px, 0); transform: translate(-2px, 0); }
+      80% { clip: rect(30px, 9999px, 35px, 0); transform: translate(2px, 2px); }
+      100% { clip: rect(50px, 9999px, 55px, 0); transform: translate(-2px, -2px); }
+    }
+    @keyframes glitch2 {
+      0% { clip: rect(20px, 9999px, 25px, 0); transform: translate(-2px, 2px); }
+      20% { clip: rect(55px, 9999px, 60px, 0); transform: translate(2px, -2px); }
+      40% { clip: rect(35px, 9999px, 40px, 0); transform: translate(-2px, 0); }
+      60% { clip: rect(40px, 9999px, 45px, 0); transform: translate(2px, 0); }
+      80% { clip: rect(25px, 9999px, 30px, 0); transform: translate(-2px, -2px); }
+      100% { clip: rect(45px, 9999px, 50px, 0); transform: translate(2px, 2px); }
+    }
+    
+    /* فقرة الوصف */
+    .about {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #ccc;
+    }
+    
+    /* مهارات البرمجة مع تأثير نيون على hover */
+    .skills {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .skills span {
+      display: inline-block;
+      margin: 5px 8px;
+      padding: 8px 15px;
+      border: 2px solid #0ff;
+      border-radius: 20px;
+      transition: all 0.3s;
+      font-size: 14px;
+      color: #0ff;
+    }
+    .skills span:hover {
+      background: #0ff;
+      color: #000;
+    }
+    
+    /* روابط التواصل مع تأثير نيون متحرك */
+    .links {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .links a {
+      display: inline-block;
+      margin: 0 8px;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border: 2px solid #0ff;
+      border-radius: 50%;
+      color: #0ff;
+      font-size: 24px;
+      transition: all 0.3s;
+    }
+    .links a:hover {
+      background: #0ff;
+      color: #000;
+      transform: scale(1.1);
+    }
+    
+    /* قسم الخبرات والمشاريع */
+    .experience {
+      margin-top: 25px;
+    }
+    .experience h3 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #0ff;
+    }
+    .experience ul {
+      list-style: none;
+      padding: 0;
+    }
+    .experience li {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-left: 3px solid #0ff;
+      transition: background 0.3s;
+      font-size: 14px;
+    }
+    .experience li:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    /* زر تبديل الوضع (اختياري) */
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10000;
+      background: #0ff;
+      color: #000;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle-mode:hover {
+      background: #0cc;
+    }
+    
+    @media (max-width: 576px) {
+      .card-custom {
+        padding: 20px;
+      }
+      .glitch { font-size: 38px; }
+      .about { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- زر تبديل الوضع (اختياري) -->
+  <button class="toggle-mode" id="toggleMode" aria-label="تبديل الوضع">
+    <i class="fas fa-sun"></i>
+  </button>
+  
+  <div class="container">
+    <div class="card-custom animate__animated animate__fadeInUp">
+      <!-- الاسم بتأثير glitch -->
+      <div class="glitch" data-text="علي">علي</div>
+      
+      <!-- وصف مختصر -->
+      <div class="about">
+        مطور ويب محترف، مبدع ومتمرد على الأساليب التقليدية. تصميم فريد مستوحى من طراز المواقع العالمية المثيرة.
+      </div>
+      
+      <!-- عرض المهارات -->
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Bootstrap</span>
+        <span>React</span>
+        <span>Node.js</span>
+      </div>
+      
+      <!-- روابط التواصل الاجتماعي وطرق الاتصال -->
+      <div class="links">
+        <a href="#" title="تويتر" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="لينكدإن" aria-label="لينكدإن"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a class="whatsapp" href="https://wa.me/966500000000" target="_blank" title="واتساب" aria-label="واتساب">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a class="telegram" href="https://t.me/YourTelegramUsername" target="_blank" title="تلجرام" aria-label="تلجرام">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </div>
+      
+      <!-- قسم الخبرات والمشاريع -->
+      <div class="experience">
+        <h3>الخبرات والمشاريع</h3>
+        <ul>
+          <li>تصميم موقع تجارة إلكترونية عصري باستخدام أحدث التقنيات.</li>
+          <li>تطوير تطبيقات تفاعلية باستخدام React و Node.js.</li>
+          <li>تنفيذ مشاريع مفتوحة المصدر مع تأثيرات بصرية مميزة.</li>
+          <li>ابتكار واجهات مستخدم جريئة ترتكز على تجربة استثنائية.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
+          integrity="sha512-+VB8v+1yhNyI74XLlIje6sEaHr5snrdcXkkU4jyg5bk29O+v3+tQt+Wuwc6Rpg+ZyUg+GjXSi3Se3W0+7yKS3g==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // زر تبديل الوضع (اختياري)
+    const toggleBtn = document.getElementById('toggleMode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const icon = toggleBtn.querySelector('i');
+      if(document.body.classList.contains('dark-mode')){
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+      } else {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+      }
+    });
+  </script>
+</body>
+</html>
