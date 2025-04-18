@@ -1,297 +1,250 @@
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DarkGlitchPortfolio - علي</title>
-  <meta name="description" content="بطاقتي الشخصية - مطور ويب محترف ومتمرد بلمسات glitch وتصميم نيون عصري.">
-  <meta name="keywords" content="مطور ويب, HTML, CSS, JavaScript, Bootstrap, glitch, تصميم عصري, نيون">
-  <meta name="author" content="علي">
-  
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
-        integrity="sha512-3gJW+B0WZ+HB2N6k93QYXb1F1yS9Z1Pf4HjeDy+zuv1AKyP0NYJyhzg+AKai0zrYhUmtIpJlpmbB7eVb1VYoLQ==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" 
-        integrity="sha512-bqjtRytrX2rEaBaxulD/qYY8fjUwz/K8vDyyfzj6G0kEGks9ITpF0tvSp6qqIf3sj7XDo8ZPZc8W5SQ2l8l+AA==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <!-- Font Awesome -->
-  <!-- جرب استبدال fas بـ fa-solid إذا واجهت مشكلة -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        integrity="sha512-papXMfXs8CtZmaQKy2lL1L5V+SlQCI5ufxmc5fkixbAm0qYst+5DV8tfhmyZnuGnKzGLT9rlU58hE0V8L6J3jg==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Business Card - Ali</title>
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- AOS for scroll animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <!-- Vanilla Tilt for 3D hover -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <!-- Typewriter effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      direction: rtl;
-      background: linear-gradient(-45deg, #000, #222, #000, #222);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: #fff;
+    /* CSS Variables for Theming */
+    :root {
+      --bg-light: #f0f4f8;
+      --bg-dark: #1f2937;
+      --card-bg: #ffffff;
+      --text-primary: #102a43;
+      --text-secondary: #334e68;
+      --accent: #38a3a5;
+      --shadow: rgba(0,0,0,0.1);
     }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    [data-theme="dark"] {
+      --bg-light: #1f2937;
+      --bg-dark: #111827;
+      --card-bg: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --accent: #3b82f6;
+      --shadow: rgba(0,0,0,0.5);
     }
-    
-    .container {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      transition: background 0.3s ease;
     }
-    
-    .card-custom {
-      background: rgba(20, 20, 20, 0.9);
-      padding: 30px;
-      border: 1px solid #444;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-      max-width: 500px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
+    a { text-decoration: none; }
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed; top: 20px; right: 20px;
+      width: 50px; height: 26px; background: var(--card-bg);
+      border-radius: 13px; box-shadow: 0 2px 8px var(--shadow);
+      cursor: pointer; display: flex; align-items: center;
+      padding: 3px; transition: background 0.3s;
     }
-    .card-custom::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,255,255,0.2), transparent 40%);
-      animation: rotate 6s linear infinite;
+    .theme-toggle .dot {
+      width: 20px; height: 20px; background: var(--accent);
+      border-radius: 50%; transition: transform 0.3s;
     }
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    [data-theme="dark"] .theme-toggle .dot { transform: translateX(24px); }
+
+    /* Container */
+    .card-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+
+    /* Card */
+    .card {
+      width: 360px; max-width: 95%; background: var(--card-bg); border-radius: 20px;
+      box-shadow: 0 10px 30px var(--shadow); overflow: hidden;
+      transform-style: preserve-3d; transition: transform 0.6s ease;
+      position: relative; cursor: pointer;
     }
-    .card-custom * {
-      position: relative;
-      z-index: 2;
+    .card:hover { transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 20px 40px var(--shadow);
     }
-    
-    .glitch {
-      position: relative;
-      font-size: 48px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 15px;
-      color: #fff;
+    .card.flipped { transform: rotateY(180deg); }
+
+    /* Faces */
+    .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+      padding: 30px; display: flex; flex-direction: column; align-items: center;
     }
-    .glitch::before, .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0.8;
+    .card-front { }
+    .card-back { transform: rotateY(180deg); overflow-y: auto; }
+
+    /* Scrollbar style */
+    .card-back::-webkit-scrollbar { width: 6px; }
+    .card-back::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* Avatar */
+    .avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent);
+      object-fit: cover; margin-bottom: 20px; }
+
+    /* Text */
+    .name { font-size: 1.9em; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; min-height: 1.2em; }
+    .title { font-size: 1em; font-weight: 400; color: var(--text-secondary); margin-bottom: 20px; }
+
+    /* Social Icons */
+    .social-icons { display: flex; margin-bottom: 15px; }
+    .social-icons a { color: var(--accent); margin: 0 10px; font-size: 1.4em;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
-    .glitch::before {
-      animation: glitch 2s infinite linear alternate-reverse;
-      color: #f00;
+    .social-icons a:hover { color: var(--text-primary); transform: scale(1.3); }
+
+/* Sections */
+    .section { width: 100%; margin-bottom: 25px; opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .glitch::after {
-      animation: glitch2 2.5s infinite linear alternate-reverse;
-      color: #0ff;
+    .section.visible { opacity: 1; transform: translateY(0); }
+    .section h3 { font-size: 1.15em; color: var(--text-primary); margin-bottom: 10px; }
+    .section p, .section ul { font-size: 0.95em; color: var(--text-secondary); text-align: center; }
+
+    /* Skills */
+    .skills { list-style: none; width: 100%; }
+    .skills li { margin-bottom: 12px; }
+    .skills-text { display: flex; justify-content: space-between; font-size: 0.9em; color: var(--text-secondary); }
+    .skill-bar { width: 100%; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
+    .skill-level { height: 100%; background: var(--accent); width: 0; transition: width 1s ease; }
+
+    /* Testimonials */
+    .testimonials { list-style: none; padding: 0; }
+    .testimonials li { margin-bottom: 15px; font-style: italic; }
+
+    /* Button & Ripple */
+    .uiverse-btn { margin: 5px; padding: 12px 24px; background: var(--accent); color: #fff;
+      border: none; border-radius: 25px; cursor: pointer; font-weight: 600;
+      position: relative; overflow: hidden; transition: transform 0.2s ease;
     }
-    @keyframes glitch {
-      0% { clip: rect(10px, 9999px, 15px, 0); transform: translate(2px, -2px); }
-      20% { clip: rect(75px, 9999px, 80px, 0); transform: translate(-2px, 2px); }
-      40% { clip: rect(45px, 9999px, 50px, 0); transform: translate(2px, 0); }
-      60% { clip: rect(60px, 9999px, 65px, 0); transform: translate(-2px, 0); }
-      80% { clip: rect(30px, 9999px, 35px, 0); transform: translate(2px, 2px); }
-      100% { clip: rect(50px, 9999px, 55px, 0); transform: translate(-2px, -2px); }
+    .uiverse-btn:hover { transform: scale(1.05) translateY(-2px); }
+    .ripple { position: absolute; border-radius: 50%; transform: scale(0); animation: ripple 600ms linear; background: rgba(255,255,255,0.7); }
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
     }
-    @keyframes glitch2 {
-      0% { clip: rect(20px, 9999px, 25px, 0); transform: translate(-2px, 2px); }
-      20% { clip: rect(55px, 9999px, 60px, 0); transform: translate(2px, -2px); }
-      40% { clip: rect(35px, 9999px, 40px, 0); transform: translate(-2px, 0); }
-      60% { clip: rect(40px, 9999px, 45px, 0); transform: translate(2px, 0); }
-      80% { clip: rect(25px, 9999px, 30px, 0); transform: translate(-2px, -2px); }
-      100% { clip: rect(45px, 9999px, 50px, 0); transform: translate(2px, 2px); }
+
+    /* Contact Form */
+    .contact-form { display: flex; flex-direction: column; width: 100%; }
+    .contact-form label { margin: 8px 0 4px; color: var(--text-primary); font-size: 0.9em; text-align: left; }
+    .contact-form input, .contact-form textarea {
+      padding: 10px; border: 1px solid #ccc; border-radius: 6px;
+      font-size: 0.9em; width: 100%; resize: vertical;
     }
-    
-    .about {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 18px;
-      line-height: 1.5;
-      color: #ccc;
-    }
-    
-    .skills {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .skills span {
-      display: inline-block;
-      margin: 5px 8px;
-      padding: 8px 15px;
-      border: 2px solid #0ff;
-      border-radius: 20px;
-      transition: all 0.3s;
-      font-size: 14px;
-      color: #0ff;
-    }
-    .skills span:hover {
-      background: #0ff;
-      color: #000;
-    }
-    
-    .links {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .links a {
-      display: inline-block;
-      margin: 0 8px;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      border: 2px solid #0ff;
-      border-radius: 50%;
-      color: #0ff;
-      font-size: 24px;
-      transition: all 0.3s;
-    }
-    .links a:hover {
-      background: #0ff;
-      color: #000;
-      transform: scale(1.1);
-    }
-    
-    .experience {
-      margin-top: 25px;
-    }
-    .experience h3 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #0ff;
-    }
-    .experience ul {
-      list-style: none;
-      padding: 0;
-    }
-    .experience li {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      border-left: 3px solid #0ff;
-      transition: background 0.3s;
-      font-size: 14px;
-    }
-    .experience li:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-    
-    .toggle-mode {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 10000;
-      background: #0ff;
-      color: #000;
-      border: none;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .toggle-mode:hover {
-      background: #0cc;
-    }
-    
-    @media (max-width: 576px) {
-      .card-custom {
-        padding: 20px;
-      }
-      .glitch { font-size: 38px; }
-      .about { font-size: 16px; }
+    .contact-form textarea { min-height: 80px; }
+    .contact-form button { margin-top: 12px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .name { font-size: 1.6em; }
+      .avatar { width: 100px; height: 100px; }
     }
   </style>
 </head>
 <body>
-  <!-- زر تبديل الوضع -->
-  <button class="toggle-mode" id="toggleMode" aria-label="تبديل الوضع">
-    <!-- جرب استخدام fa-solid بدلًا من fas إذا لزم الأمر -->
-    <i class="fas fa-sun"></i>
-  </button>
-  
-  <div class="container">
-    <div class="card-custom animate__animated animate__fadeInUp">
-      <!-- الاسم بتأثير glitch -->
-      <div class="glitch" data-text="علي">علي</div>
-      
-      <!-- وصف مختصر -->
-      <div class="about">
-        مطور ويب محترف، مبدع ومتمرد على الأساليب التقليدية. تصميم فريد مستوحى من طراز المواقع العالمية المثيرة.
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" onclick="toggleTheme()"><div class="dot"></div></div>
+
+<!-- Card Container -->
+  <div class="card-container">
+    <div class="card" data-tilt data-tilt-max="15" data-tilt-speed="400" id="card">
+      <!-- Front Face -->
+      <div class="card-face card-front" data-aos="fade-down">
+        <img src="https://via.placeholder.com/120" alt="Ali's Avatar" class="avatar" />
+        <h1 class="name" id="typewriter"></h1>
+        <p class="title">Full-Stack Web Developer</p>
+        <div class="social-icons">
+          <a href="https://wa.me/966500000000" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://t.me/YourTelegramUsername" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="https://github.com/YourGitHubUsername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/YourLinkedInUsername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <button class="uiverse-btn" onclick="rippleEffect(event); flipCard();">Learn More</button>
       </div>
-      
-      <!-- عرض المهارات -->
-      <div class="skills">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>Bootstrap</span>
-        <span>React</span>
-        <span>Node.js</span>
-      </div>
-      
-      <!-- روابط التواصل الاجتماعي -->
-      <div class="links">
-        <a href="#" title="تويتر" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-        <a href="#" title="لينكدإن" aria-label="لينكدإن"><i class="fab fa-linkedin"></i></a>
-        <a href="#" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a class="whatsapp" href="https://wa.me/966500000000" target="_blank" title="واتساب" aria-label="واتساب">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <a class="telegram" href="https://t.me/YourTelegramUsername" target="_blank" title="تليجرام" aria-label="تليجرام">
-          <i class="fab fa-telegram"></i>
-        </a>
-      </div>
-      
-      <!-- قسم الخبرات والمشاريع -->
-      <div class="experience">
-        <h3>الخبرات والمشاريع</h3>
-        <ul>
-          <li>تصميم موقع تجارة إلكترونية عصري باستخدام أحدث التقنيات.</li>
-          <li>تطوير تطبيقات تفاعلية باستخدام React و Node.js.</li>
-          <li>تنفيذ مشاريع مفتوحة المصدر مع تأثيرات بصرية مميزة.</li>
-          <li>ابتكار واجهات مستخدم جريئة ترتكز على تجربة استثنائية.</li>
-        </ul>
+      <!-- Back Face -->
+      <div class="card-face card-back" data-aos="fade-up">
+        <div class="section visible" id="about">
+          <h3>About Me</h3>
+          <p>Passionate about building performant, accessible web apps with clean design and seamless UX.</p>
+        </div>
+        <div class="section" id="skills">
+          <h3>Skills</h3>
+          <ul class="skills">
+            <li><div class="skills-text"><span>JavaScript</span><span>90%</span></div><div class="skill-bar"><div class="skill-level" style="width:90%;"></div></div></li>
+            <li><div class="skills-text"><span>React.js</span><span>85%</span></div><div class="skill-bar"><div class="skill-level" style="width:85%;"></div></div></li>
+            <li><div class="skills-text"><span>Node.js</span><span>80%</span></div><div class="skill-bar"><div class="skill-level" style="width:80%;"></div></div></li>
+          </ul>
+        </div>
+        <div class="section" id="projects">
+          <h3>Projects</h3>
+          <ul class="projects">
+            <li>📦 <a href="#">E-Commerce SPA</a></li>
+            <li>📊 <a href="#">Analytics Dashboard</a></li>
+            <li>📝 <a href="#">Real-time Chat App</a></li>
+          </ul>
+        </div>
+        <div class="section" id="testimonials">
+          <h3>Testimonials</h3>
+          <ul class="testimonials">
+            <li>“Ali's work transformed our platform—fast, clean, and reliable.” – Client A</li>
+            <li>“Exceptional developer with great communication skills.” – Client B</li>
+          </ul>
+        </div>
+        <div class="section" id="contact-form">
+          <h3>Contact Me</h3>
+          <form class="contact-form" onsubmit="submitForm(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" class="uiverse-btn">Send</button>
+          </form>
+        </div>
+        <button class="uiverse-btn" onclick="rippleEffect(event); flipCard();">Back</button>
       </div>
     </div>
   </div>
-  
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
-          integrity="sha512-+VB8v+1yhNyI74XLlIje6sEaHr5snrdcXkkU4jyg5bk29O+v3+tQt+Wuwc6Rpg+ZyUg+GjXSi3Se3W0+7yKS3g==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    const toggleBtn = document.getElementById('toggleMode');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const icon = toggleBtn.querySelector('i');
-      if(document.body.classList.contains('dark-mode')){
-          icon.classList.remove('fa-sun');
-          icon.classList.add('fa-moon');
-      } else {
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-      }
-    });
+    // Initialize Tilt effect
+    VanillaTilt.init(document.querySelectorAll(".card"), { max: 15, speed: 400, glare: true, "max-glare": 0.2 });
+    // Initialize AOS
+    AOS.init({ duration: 800, once: true });
+    // Typewriter effect for name
+    const typeWriter = new Typewriter('#typewriter', { loop: false, cursor: '|', delay: 75 });
+    typeWriter.typeString('Ali Ahmed').start();
+    // Ripple effect
+    function rippleEffect(event) {
+      const btn = event.currentTarget;
+      const circle = document.createElement('span');
+      circle.classList.add('ripple');
+      const d = Math.max(btn.clientWidth, btn.clientHeight);
+      const r = d/2;
+      circle.style.width = circle.style.height = ${d}px;
+      circle.style.left = ${event.clientX - btn.offsetLeft - r}px;
+      circle.style.top = ${event.clientY - btn.offsetTop - r}px;
+      btn.appendChild(circle);
+      setTimeout(() => circle.remove(), 600);
+    }
+    // Flip card
+    function flipCard() {
+      document.getElementById('card').classList.toggle('flipped');
+    }
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    }
+    // Simple form submit
+    function submitForm(e) {
+      e.preventDefault();
+      alert('Thank you, ' + e.target.name.value + '! Your message has been sent.');
+      e.target.reset();
+    }
   </script>
 </body>
-</html>
+                                                      </html>
